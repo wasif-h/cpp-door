@@ -1,5 +1,5 @@
 // Author : Wasif Hossain <https://www.linkedin.com/in/wasif-h>
-// Topic  : shallow copy constructor
+// Topic  : destructor
 #include <bits/stdc++.h>
 using namespace std;
 class Student
@@ -16,6 +16,14 @@ public:
         *rollptr = roll;
         this->cgpa = cgpa;
     }
+    
+    // destructor will be here by default. If we use dynamic memory allocation we need to delete the value from the heap memory menually. Then we use custom destructor.
+    ~Student()
+    {
+        cout << "I am destructor, I delete everything" << endl;
+        delete rollptr;
+    }
+    
     // custom copy constructor. But this will be written by default
     Student(Student &obj)
     {
